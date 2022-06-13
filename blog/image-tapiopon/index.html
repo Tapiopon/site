@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet">
+  <title>たぴおぽんとコラボしよう(適当)</title>
+</head>
+<body>
+  <label class="text_label">
+    <input type="text" id="text" placeholder="テキスト">
+    <input type="color" id="color">
+    <input type="color" id="bg_color">
+  </label><br><br>
+  <label for="upload" class="up_file">
+    合成したい画像を選択
+    <input type="file" onchange="up(this)" id="upload" accept="image/*">
+  </label><br><br>
+  <canvas id="in"></canvas><br>
+  <div id="result">
+    <a onclick="DL()" class="download">Download</a>
+    <div class="tweet" onclick="tweet()">
+      <img src="../icon/twitter.svg"><a>サイトを共有する</a>
+    </div>
+  </div>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap');
+    #upload {
+      display: none;
+    }
+    .up_file {
+      position: absolute;
+      left:50%;
+      margin-right:-50%;
+      transform: translate(-50%);
+      font-size: 24px;
+      border-radius: 30px;
+      padding: 2px 8px;
+      background: linear-gradient(90deg, rgba(184,238,196,1) 0%, rgba(165,234,163,1) 99%);
+    }
+    #in {
+      position: relative;
+      left: -3px;
+      width: 100%;
+      height: auto;
+      border:double 5px #000;
+      display:inline-block;
+    }
+    #result {
+      position: relative;
+      left: 0;
+      width: 100%;
+      display: none;
+    }
+    .download {
+      position: absolute;
+      left:50%;
+      margin-right:-50%;
+      font-size:32px;
+      background: linear-gradient(90deg, rgba(31,216,70,1) 0%, rgba(39,223,200,1) 20%, rgba(121,216,212,1) 64%, rgba(0,212,255,1) 100%);
+      border-radius: 30px;
+      padding: 10px 30px;
+      transform: translate(-50%);
+      user-select:none;
+    }
+    .download:active {
+      background: linear-gradient(90deg, rgba(60,134,76,1) 0%, rgba(55,100,95,1) 20%, rgba(95,39,101,1) 66%, rgba(81,155,170,1) 100%);
+    }
+    .tweet {
+      position: absolute;
+      top: 80px;
+      left:50%;
+      margin-right:-50%;
+      padding: 10px 30px;
+      border-radius: 30px;
+      background: linear-gradient(90deg, rgba(130,222,235,1) 0%, rgba(28,189,252,1) 99%);
+      transform: translate(-50%);
+    }
+    .tweet img {
+      width: 32px;
+    }
+    .tweet a {
+      font-size: 32px;
+    }
+    .text_label {
+      position: absolute;
+      left:50%;
+      margin-right:-50%;
+      transform: translate(-50%);
+      font-size: 24px;
+      border-radius: 30px;
+      padding: 2px 8px;
+    }
+  </style>
+  <script>
+    function up(input){
+      const reader = new FileReader();
+      reader.onload = function (inport) {
+        const img = new Image();
+        img.src = inport.target.result;
+        img.onload = () => {
+          
+          const canvas = document.querySelector("#in");
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          
+          const my_img = new Image();
+          my_img.src = "my.png";
+          my_img.onload = () => {
+            let my_size = Math.max(img.naturalWidth,img.naturalHeight)/3;
+            ctx.drawImage(my_img, canvas.width-my_size, canvas.height-my_size, my_size*1.2 , my_size);
+            ctx.font = canvas.width/20+'px serif';
+            ctx.textBaseline = 'center';
+            ctx.textAlign = 'center';
+            let background = ctx.measureText(text.value);
+            ctx.fillStyle = bg_color.value;
+            ctx.fillRect(canvas.width/2-background.width/2,canvas.height-canvas.width/14,background.width,canvas.width/20)
+            ctx.fillStyle = color.value;
+            ctx.textBaseline = 'middle';
+            ctx.fillText(text.value,canvas.width/2,canvas.height-canvas.width/20);
+            document.getElementById("result").style.display = "block";
+          }
+        }
+      }
+      reader.readAsDataURL(input.files[0])
+    }
+    function DL() {
+      const dl_img = document.getElementById("in").toDataURL();
+      const a = document.createElement("a");
+      a.download = 'Tapiopon';
+      a.href = dl_img;
+      a.click();
+    }
+    function tweet() {
+      const tweet_img = document.getElementById("in").toDataURL();
+      const link_tweet = document.createElement("a");
+      link_tweet.href = "https://twitter.com/intent/tweet?text=たぴおぽんとコラボしよう。%0D%0Ahttps://faos.ga/link/TapioponSynthetic%0D%0A";
+      link_tweet.target = "_blank"
+      link_tweet.click();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="たぴおぽんのホームページです">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <link rel="manifest" href="manifest.json">
+  <title>タピオポンのホームページ</title>
+  <link rel="stylesheet" media="screen and (max-width:768px)" href="mobile.css">
+  <link rel="stylesheet" media="screen and (min-width:769px)" href="pc.css">
+  <script>
+    navigator.serviceWorker.register('sw.js');
+    let add =0;
+    function menu(){
+      add++;
+      if(add % 2 !== 0) {
+        document.getElementById('menu-box-off').classList.add('menu-box-on');
+      }else{
+        document.getElementById('menu-box-off').classList.remove('menu-box-on')
+        add = 0;
+      }
+    }
+  </script>
+</head>
+<body>
+  <a class="title">Tapiopon Homepage</a>
+  <label class="menu">
+    <input type="checkbox" onclick="menu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </label>
+  <div class="menu-box" id="menu-box-off">
+    <a class="menu-box-mypage">近日公開</a><br>
+    <a style="display:none">個人的なマイクラワールドのダウンロード</a>
+  </div>
+  <div class="main">
+    <img id="random_imgs">
+    <script>
+      if(window.innerHeight < window.innerWidth){
+        
+      }
+      let randomimg = [
+        'https://media.discordapp.net/attachments/930453586058559568/962969284420702238/tapiopon-ryokou.png',
+        'https://media.discordapp.net/attachments/930453586058559568/962969344416030740/tapiopon-ryokou.png',
+        'https://media.discordapp.net/attachments/930453586058559568/962969407603240981/tapiopon-ryokou.png',
+        'https://media.discordapp.net/attachments/930453586058559568/962969462187884564/tapiopon-ryokou.png',
+        'https://media.discordapp.net/attachments/930453586058559568/963451261938712616/tapiopon-ryokou.png',
+        'https://media.discordapp.net/attachments/930453586058559568/963451316603080755/tapiopon-ryokou.png',
+        'https://media.discordapp.net/attachments/930453586058559568/963451375835025428/tapiopon-ryokou.png',
+        'https://media.discordapp.net/attachments/930453586058559568/963451453081534574/tapiopon-ryokou.png'
+      ];
+      document.getElementById('random_imgs').src = randomimg[Math.floor(Math.random()*randomimg.length)];
+    </script>
+    <p>たぴおぽんのサイト！</p>
+    <p>
+      ぼくの名前はたぴおぽん！<br>
+      自己紹介をしてみよう！<br>
+      主にツイッターで活動してるよ！<br>
+      そしてFORTNITEもやってるよ！<br>
+      ついでにスリザリオとSkyもやってるよ！<br>
+      たまにあほみたいな動画も作ってるよ！<br>
+      ついでにスイッチ勢だよ！<br>
+    </p>
+    <p>
+      たぴおぽんって<br>
+      どんなキャラクター？
+    </p>
+    <table class="introduction">
+      <tr>
+        <th>年齢</th>
+        <td>3.14歳</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>ジャンル</th>
+        <td>あほ</td>
+        <td>シュール</td>
+        <td>カオス</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>好きなこと</th>
+        <td>荒らす</td>
+        <td>食べる</td>
+        <td>空を飛ぶ</td>
+        <td>寝る</td>
+      </tr>
+      <tr>
+        <th>嫌いなこと</th>
+        <td>勉強</td>
+        <td>走ること</td>
+        <td>勝手に浮く</td>
+        <td>洗濯</td>
+      </tr>
+      <tr>
+        <th>好きなもの</th>
+        <td>とまと</td>
+        <td>ガム</td>
+        <td>無法無双</td>
+        <td>家</td>
+      </tr>
+      <tr>
+        <th>嫌いなもの</th>
+        <td>野菜</td>
+        <td>野菜ジュース</td>
+        <td>野菜ソムリエ</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>口癖</th>
+        <td>ええ</td>
+        <td>あほくさ</td>
+        <td>かえれ</td>
+        <td>あほくさ</td>
+      </tr>
+      <tr>
+        <th>目標</th>
+        <td>有名になる</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>趣味</th>
+        <td>寝る</td>
+        <td>睡眠</td>
+        <td>お昼寝</td>
+        <td>sleep</td>
+      </tr>
+      <tr>
+        <th>特技</th>
+        <td>寝る</td>
+        <td>寝る</td>
+        <td>寝る</td>
+        <td>寝る</td>
+      </tr>
+    </table>
+    <p>
+      たぴおぽんのLINEスタンプもあるよ！<br>
+    </p>
+    <div class="line-stamp" onclick="location.href='https://line.me/S/sticker/18034998'">
+      <img src="https://media.discordapp.net/attachments/930453586058559568/963014563580756029/tapiopon.png">
+      <p>
+        たぴおぽんスタンプ<br>
+        No.1
+      </p>
+    </div>
+    <div class="line-stamp" onclick="location.href='https://line.me/S/sticker/18857449'">
+      <img src="https://media.discordapp.net/attachments/930453586058559568/963032032110333972/tapiopon.png">
+      <p>
+        たぴおぽんスタンプ<br>
+        No.2
+      </p>
+    </div>
+  </div>
+</body>
+</html>
