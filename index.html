@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="たぴおぽんのホームページです">
+  <meta name="theme-color" content="#2cb4ad">
   <link rel="icon" type="image/png" href="/icon.png">
   <link rel="apple-touch-icon" href="/icon.png">
   <link rel="manifest" href="manifest.json">
-  <title>タピオポンのホームページ 2.0</title>
+  <title>タピオポンのホームページ</title>
   <link rel="stylesheet" media="screen and (max-width:768px)" href="mobile.css">
   <link rel="stylesheet" media="screen and (min-width:769px)" href="pc.css">
   <script>
@@ -25,7 +26,7 @@
   </script>
 </head>
 <body>
-  <a class="title">Tapiopon Homepage</a>
+  <p class="title">Tapiopon Homepage</p>
   <label class="menu">
     <input type="checkbox" onclick="menu()">
     <div></div>
@@ -33,15 +34,12 @@
     <div></div>
   </label>
   <div class="menu-box" id="menu-box-off">
-    <a class="menu-box-mypage">近日公開</a><br>
-    <a style="display:none">個人的なマイクラワールドのダウンロード</a>
+    <p class="menu-box-mypage">近日公開</p><br>
+    <p style="display:none">個人的なマイクラワールドのダウンロード</p>
   </div>
   <div class="main">
-    <img id="random_imgs">
+    <img id="random_imgs" alt="たぴおぽんの画像">
     <script>
-      if(window.innerHeight < window.innerWidth){
-        
-      }
       let randomimg = [
         'https://media.discordapp.net/attachments/930453586058559568/962969284420702238/tapiopon-ryokou.png',
         'https://media.discordapp.net/attachments/930453586058559568/962969344416030740/tapiopon-ryokou.png',
@@ -144,14 +142,14 @@
       たぴおぽんのLINEスタンプもあるよ！<br>
     </p>
     <div class="line-stamp" onclick="location.href='https://line.me/S/sticker/18034998'">
-      <img src="https://media.discordapp.net/attachments/930453586058559568/963014563580756029/tapiopon.png">
+      <img src="https://media.discordapp.net/attachments/930453586058559568/963014563580756029/tapiopon.png" alt="たぴおぽんのラインスタンプ">
       <p>
         たぴおぽんスタンプ<br>
         No.1
       </p>
     </div>
     <div class="line-stamp" onclick="location.href='https://line.me/S/sticker/18857449'">
-      <img src="https://media.discordapp.net/attachments/930453586058559568/963032032110333972/tapiopon.png">
+      <img src="https://media.discordapp.net/attachments/930453586058559568/963032032110333972/tapiopon.png" alt="たぴおぽんのラインスタンプ">
       <p>
         たぴおぽんスタンプ<br>
         No.2

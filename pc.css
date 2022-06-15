@@ -26,6 +26,7 @@
 #random_imgs {
   position: relative;
   width: 100%;
+  height: auto;
 }
 .main p:nth-of-type(1) {
   font-size: 48px;
