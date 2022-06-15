@@ -56,6 +56,12 @@ window.onload = function () {
     home_st_text.text = "スタート";
     home_st_text.moveTo((sc_x - home_st_text._boundWidth)/2,sc_y/1.2);
     
+    let gameover_text = new Label();
+    gameover_text.font = sc_x/10+"px Dela Gothic One";
+    gameover_text.color = "#fff";
+    gameover_text.text = "死んでしまった！";
+    gameover_text.moveTo((sc_x - gameover_text._boundWidth)/2,sc_y/8);
+    
     let start_button = new Sprite(home_st_text._boundWidth,sc_x/10);
     let start_button_surface = new Surface(home_st_text._boundWidth,sc_x/10);
     start_button_surface.context.fillStyle = '#c7dc68';
@@ -136,7 +142,7 @@ window.onload = function () {
           this.x += Math.cos(this.rad) * speed/game.actualFps;
           this.y += Math.sin(this.rad) * speed/game.actualFps;
           if(this.within(player_sprite,sc_x/16)){
-            alert('とむあほ')
+            gameset()
           }
           for(let i=0;i<bullet_count;i++){
             if(this.within(bullets[i],sc_x/16)){
@@ -164,11 +170,22 @@ window.onload = function () {
           this.x += Math.cos(this.rad) * speed/game.actualFps;
           this.y += Math.sin(this.rad) * speed/game.actualFps;
           if(this.within(player_sprite,sc_x/32)){
-            alert('とむあほ')
+            gameset()
           }
         }
       }
     });
+    
+    function gameset() {
+      for(let i=0;i<enemy_count-1;i++){
+        if(enemys[i].parentNode){
+          enemys[i].parentNode.removeChild(enemys[i]);
+        }
+      }
+      enemy_count = 0;
+      game.pushScene(gameover);
+      game.removeScene(stage)
+    }
     
     //動作
     game.pushScene(start);
@@ -183,12 +200,18 @@ window.onload = function () {
     stage.addChild(player);
     stage.addChild(player_sprite);
     
+    gameover.addChild(gameover_text)
+    
     start.ontouchend = function () {
       game.replaceScene(home);
     };
     
     home_st_text.ontouchend = function () {
       game.pushScene(stage);
+    }
+    
+    gameover.ontouchend = function () {
+      game.removeScene(gameover)
     }
     
     stage.ontouchmove = function (e) {
