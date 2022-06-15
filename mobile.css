@@ -46,7 +46,7 @@
 }
 .title {
   position: absolute;
-  display: inline;
+  display: inline-block;
   left: 0;
   top: -24px;
   width: calc(100% - 2px);
