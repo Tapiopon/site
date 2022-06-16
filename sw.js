@@ -1,4 +1,4 @@
-let CACHE_NAME = 'Tapiopon-v1.0.0'
+let CACHE_NAME = 'Tapiopon-v2'
 self.addEventListener('fetch', function(e) { })
 self.addEventListener('install', function(event){
   event.waitUntil(
