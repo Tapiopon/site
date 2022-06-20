@@ -1,5 +1,2 @@
-User-agent: 
-Disallow:
-Allow:
-Sitemap:
-Sitemap:
+User-agent:Tapiopon
+Sitemap:https://tapio.cf/sitemap.xml
