@@ -10,6 +10,7 @@
   left: 0;
   top: 0;
   width: calc(100% - 2px);
+  height: 48px;
   text-align: center;
   font-size: 48px;
   border: double 1px;
