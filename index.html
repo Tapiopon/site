@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="たぴおぽんのホームページです">
-  <meta name="theme-color" content="#2cb4ad">
   <link rel="icon" type="image/png" href="/icon.png">
   <link rel="apple-touch-icon" href="/icon.png">
-  <link rel="manifest" href="/manifest.json">
-  <title>たぴおぽんのホームページ</title>
+  <link rel="manifest" href="manifest.json">
+  <title>タピオポンのホームページ</title>
   <link rel="stylesheet" media="screen and (max-width:768px)" href="mobile.css">
   <link rel="stylesheet" media="screen and (min-width:769px)" href="pc.css">
   <script>
-    navigator.serviceWorker.register('/sw.js');
+    navigator.serviceWorker.register('sw.js');
     let add =0;
     function menu(){
       add++;
@@ -26,7 +25,7 @@
   </script>
 </head>
 <body>
-  <p class="title">Tapiopon Homepage</p>
+  <a class="title">Tapiopon Homepage</a>
   <label class="menu">
     <input type="checkbox" onclick="menu()">
     <div></div>
@@ -34,12 +33,15 @@
     <div></div>
   </label>
   <div class="menu-box" id="menu-box-off">
-    <p class="menu-box-mypage">近日公開</p><br>
-    <p style="display:none">個人的なマイクラワールドのダウンロード</p>
+    <a class="menu-box-mypage">近日公開</a><br>
+    <a style="display:none">個人的なマイクラワールドのダウンロード</a>
   </div>
   <div class="main">
-    <img id="random_imgs" alt="たぴおぽんの画像">
+    <img id="random_imgs">
     <script>
+      if(window.innerHeight < window.innerWidth){
+        
+      }
       let randomimg = [
         'https://media.discordapp.net/attachments/930453586058559568/962969284420702238/tapiopon-ryokou.png',
         'https://media.discordapp.net/attachments/930453586058559568/962969344416030740/tapiopon-ryokou.png',
@@ -54,9 +56,8 @@
     </script>
     <p>たぴおぽんのサイト！</p>
     <p>
-      ぼくの名前はたぴおぽん！
+      ぼくの名前はたぴおぽん！<br>
     </p>
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">pet the tapiopon<a href="https://twitter.com/Tapiopon?ref_src=twsrc%5Etfw">@Tapiopon</a> <a href="https://t.co/dNHqQCY2Rh">pic.twitter.com/dNHqQCY2Rh</a></p>&mdash; しりき (@sirikitk2007) <a href="https://twitter.com/sirikitk2007/status/1556097155655290881?ref_src=twsrc%5Etfw">August 7, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <p>
       たぴおぽんって<br>
       どんなキャラクター？
@@ -137,22 +138,18 @@
       たぴおぽんのLINEスタンプもあるよ！<br>
     </p>
     <div class="line-stamp" onclick="location.href='https://line.me/S/sticker/18034998'">
-      <img src="https://media.discordapp.net/attachments/930453586058559568/963014563580756029/tapiopon.png" alt="たぴおぽんのラインスタンプ">
+      <img src="https://media.discordapp.net/attachments/930453586058559568/963014563580756029/tapiopon.png">
       <p>
         たぴおぽんスタンプ<br>
         No.1
       </p>
     </div>
     <div class="line-stamp" onclick="location.href='https://line.me/S/sticker/18857449'">
-      <img src="https://media.discordapp.net/attachments/930453586058559568/963032032110333972/tapiopon.png" alt="たぴおぽんのラインスタンプ">
+      <img src="https://media.discordapp.net/attachments/930453586058559568/963032032110333972/tapiopon.png">
       <p>
         たぴおぽんスタンプ<br>
         No.2
       </p>
-    </div>
-    <div>
-      <a>何かしらの連絡などはDMで</a>
-      <a href="https://twitter.com/Tapiopon/">Twitter</a>
     </div>
   </div>
 </body>
